@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use DB;
 
 class PostsController extends Controller
 {
@@ -15,7 +16,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        //$posts = Post::orderBy('created_at','desc')->paginate(10);
+        //$posts = DB::select('SELECT * FROM posts');
+        //return view('posts.index')->with('posts', $posts);
+        $posts = Post::orderBy('created_at','desc')->get();
         return view('posts.index')->with('posts', $posts);
     }
 
