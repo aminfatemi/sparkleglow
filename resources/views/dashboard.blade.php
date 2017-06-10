@@ -9,10 +9,14 @@
 
                 <div class="panel-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
 =======
                     <a href='/posts/create' class="btn btn-primary"> Create Post</a>
 >>>>>>> refs/remotes/origin/master
+=======
+                    <a href='/posts/create' class="btn btn-primary"> Create Post</a>
+>>>>>>> 18cd3147... Authentican & relationships
                     <h3>Your Blog Posts</h3>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
@@ -36,10 +40,14 @@
                         </table>
                     @else
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <p>You currently have no posts</p>
 =======
                         <p>You have no posts</p>
 >>>>>>> refs/remotes/origin/master
+=======
+                        <p>You have no posts</p>
+>>>>>>> 18cd3147... Authentican & relationships
                     @endif
                 </div>
             </div>

@@ -107,6 +107,12 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->body = $request->input('body');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+        //this will get the currently logged in user and put it in the user_id and save it
+        $post->user_id = auth()->user()->id;
+>>>>>>> 18cd3147... Authentican & relationships
         $post->save();
 <<<<<<< HEAD
             

@@ -14,6 +14,7 @@ class AddUserIdToPosts extends Migration
     public function up()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         Schema::table('posts', function($table){
             $table->integer('user_id');
 =======
@@ -21,6 +22,11 @@ class AddUserIdToPosts extends Migration
             $table->integer('user_id');
 
 >>>>>>> refs/remotes/origin/master
+=======
+        schema::table('posts',function($table){
+            $table->integer('user_id');
+
+>>>>>>> 18cd3147... Authentican & relationships
         });
     }
 
@@ -31,6 +37,7 @@ class AddUserIdToPosts extends Migration
      */
     public function down()
 <<<<<<< HEAD
+<<<<<<< HEAD
     {
         Schema::table('posts', function($table){
             $table->dropColumn('user_id');
@@ -39,6 +46,11 @@ class AddUserIdToPosts extends Migration
             $table->dropColumn('user_id');
 
 >>>>>>> refs/remotes/origin/master
+=======
+    {  schema::table('posts',function($table){
+            $table->dropColumn('user_id');
+
+>>>>>>> 18cd3147... Authentican & relationships
         });
     }
 }

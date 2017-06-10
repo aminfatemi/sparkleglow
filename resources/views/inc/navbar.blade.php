@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
@@ -79,6 +80,8 @@
     </nav>
 >>>>>>> b1c5cb4d... CRUD create/store with validation
 =======
+=======
+>>>>>>> 18cd3147... Authentican & relationships
 
      <nav class="navbar navbar-inverse">
             <div>
@@ -141,5 +144,9 @@
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD
         </nav>
 >>>>>>> refs/remotes/origin/master
+=======
+        </nav>
+>>>>>>> 18cd3147... Authentican & relationships

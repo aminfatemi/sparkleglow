@@ -28,15 +28,21 @@ class User extends Authenticatable
     ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     //one to many relationship
     public function posts(){
         return $this->hasMany('App\Post');
     }
 }
 =======
+=======
+>>>>>>> 18cd3147... Authentican & relationships
     public function posts(){
         //one ot many relationship
         return $this->hasMany('App\Post');
         }
  }
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> 18cd3147... Authentican & relationships

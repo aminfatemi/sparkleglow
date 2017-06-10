@@ -27,4 +27,7 @@ Route::resource('posts','PostsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> 18cd3147... Authentican & relationships
