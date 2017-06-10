@@ -8,7 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+<<<<<<< HEAD
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
+=======
+                    <a href='/posts/create' class="btn btn-primary"> Create Post</a>
+>>>>>>> refs/remotes/origin/master
                     <h3>Your Blog Posts</h3>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
@@ -31,7 +35,11 @@
                             @endforeach
                         </table>
                     @else
+<<<<<<< HEAD
                         <p>You currently have no posts</p>
+=======
+                        <p>You have no posts</p>
+>>>>>>> refs/remotes/origin/master
                     @endif
                 </div>
             </div>

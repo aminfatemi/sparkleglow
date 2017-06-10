@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/master
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<<<<<<< HEAD
     <div id="app">
         @include('inc.navbar')
         <div class="container">
@@ -34,13 +38,24 @@
             @include('inc.messages')
             @yield('content')
         </div>
+=======
+    <div id="app" class="container">       
+        @include('inc.navbar')
+        <div>
+            @include('inc.messages')
+            @yield('content')
+        </div>        
+>>>>>>> refs/remotes/origin/master
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+<<<<<<< HEAD
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
+=======
+>>>>>>> refs/remotes/origin/master
 </body>
 </html>

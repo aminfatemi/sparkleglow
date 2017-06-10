@@ -6,7 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'AddCoverImageToPosts' => $baseDir . '/database/migrations/2017_06_10_195053_add_cover_image_to_posts.php',
+=======
+>>>>>>> refs/remotes/origin/master
     'AddUserIdToPosts' => $baseDir . '/database/migrations/2017_06_09_232031_add_user_id_to_posts.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',

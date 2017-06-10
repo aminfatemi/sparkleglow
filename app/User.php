@@ -27,8 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+<<<<<<< HEAD
     //one to many relationship
     public function posts(){
         return $this->hasMany('App\Post');
     }
 }
+=======
+    public function posts(){
+        //one ot many relationship
+        return $this->hasMany('App\Post');
+        }
+ }
+>>>>>>> refs/remotes/origin/master

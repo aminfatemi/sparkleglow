@@ -26,8 +26,13 @@ class PostsController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         //$posts = Post::all();
         //return Post::where('title', 'Post Two')->get();
+=======
+        $posts = Post::orderBy('created_at','desc')->paginate(5);
+        return view('posts.index')->with('posts', $posts);
+>>>>>>> refs/remotes/origin/master
         //$posts = DB::select('SELECT * FROM posts');
         //$posts = Post::orderBy('title','desc')->take(1)->get();
         //$posts = Post::orderBy('title','desc')->get();
@@ -54,6 +59,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required',
@@ -87,6 +93,8 @@ class PostsController extends Controller
 
         return redirect('/posts')->with('success', 'Post Created');
 =======
+=======
+>>>>>>> refs/remotes/origin/master
        $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -95,10 +103,19 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+<<<<<<< HEAD
         $post->save();
             
         return redirect('/posts')->with('success','Your New Post is Created');
 >>>>>>> b1c5cb4d... CRUD create/store with validation
+=======
+
+        //this will get the currently logged in user and put it in the user_id and save it
+        $post->user_id = auth()->user()->id;
+        $post->save();
+
+        return redirect('/posts')->with('success','Your New Post is created');
+>>>>>>> refs/remotes/origin/master
     }
 
     /**
@@ -122,12 +139,15 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+<<<<<<< HEAD
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
+=======
+>>>>>>> refs/remotes/origin/master
         return view('posts.edit')->with('post', $post);
     }
 
@@ -140,6 +160,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required'
@@ -156,6 +177,19 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Updated');
+=======
+       $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+       ]);
+
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        return redirect('/posts')->with('success','Your Post is updated');
+>>>>>>> refs/remotes/origin/master
     }
 
     /**
@@ -167,6 +201,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+<<<<<<< HEAD
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
@@ -177,5 +212,9 @@ class PostsController extends Controller
         
         $post->delete();
         return redirect('/posts')->with('success', 'Post Removed');
+=======
+        $post->delete();
+        return redirect('/posts')->with('success','The Post is removed');
+>>>>>>> refs/remotes/origin/master
     }
 }
