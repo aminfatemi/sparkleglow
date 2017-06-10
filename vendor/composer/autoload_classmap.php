@@ -6,7 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddUserIdToPosts' => $baseDir . '/database/migrations/2017_06_10_162844_add_user_id_to_posts.php',
+    'AddCoverImageToPosts' => $baseDir . '/database/migrations/2017_06_10_195053_add_cover_image_to_posts.php',
+    'AddUserIdToPosts' => $baseDir . '/database/migrations/2017_06_09_232031_add_user_id_to_posts.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
