@@ -27,9 +27,12 @@ class PostsController extends Controller
     public function index()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         //$posts = Post::all();
         //return Post::where('title', 'Post Two')->get();
 =======
+=======
+>>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
         $posts = Post::orderBy('created_at','desc')->paginate(5);
         return view('posts.index')->with('posts', $posts);
 >>>>>>> refs/remotes/origin/master
@@ -105,6 +108,7 @@ class PostsController extends Controller
         $post->body = $request->input('body');
 <<<<<<< HEAD
         $post->save();
+<<<<<<< HEAD
             
         return redirect('/posts')->with('success','Your New Post is Created');
 >>>>>>> b1c5cb4d... CRUD create/store with validation
@@ -116,6 +120,10 @@ class PostsController extends Controller
 
         return redirect('/posts')->with('success','Your New Post is created');
 >>>>>>> refs/remotes/origin/master
+=======
+
+        return redirect('/posts')->with('success','Your New Post is created');
+>>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
     }
 
     /**
@@ -140,6 +148,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
@@ -148,6 +157,8 @@ class PostsController extends Controller
 
 =======
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
         return view('posts.edit')->with('post', $post);
     }
 
@@ -160,6 +171,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required',
@@ -178,6 +190,8 @@ class PostsController extends Controller
 
         return redirect('/posts')->with('success', 'Post Updated');
 =======
+=======
+>>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
        $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -189,7 +203,10 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/posts')->with('success','Your Post is updated');
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
     }
 
     /**
@@ -201,6 +218,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         // Check for correct user
@@ -216,5 +234,9 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/posts')->with('success','The Post is removed');
 >>>>>>> refs/remotes/origin/master
+=======
+        $post->delete();
+        return redirect('/posts')->with('success','The Post is removed');
+>>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
     }
 }
