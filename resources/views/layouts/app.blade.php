@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+<<<<<<< HEAD
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,19 @@
     <div id="app">
         @include('inc.navbar')
         <div class="container">
+=======
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+        <!-- Amin's Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <title>{{ config('app.name', 'SparkleGlow') }}</title>
+    </head>
+    <body>
+        @include('inc/navbar')
+        <div class="container"> 
+>>>>>>> b1c5cb4d... CRUD create/store with validation
             @include('inc.messages')
             @yield('content')
         </div>

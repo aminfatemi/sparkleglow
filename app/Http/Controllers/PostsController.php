@@ -54,6 +54,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -85,6 +86,19 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
+=======
+       $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+       ]);
+
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+            
+        return redirect('/posts')->with('success','Your New Post is Created');
+>>>>>>> b1c5cb4d... CRUD create/store with validation
     }
 
     /**
