@@ -26,21 +26,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         //$posts = Post::all();
         //return Post::where('title', 'Post Two')->get();
-=======
-=======
->>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
-        $posts = Post::orderBy('created_at','desc')->paginate(5);
-        return view('posts.index')->with('posts', $posts);
->>>>>>> refs/remotes/origin/master
         //$posts = DB::select('SELECT * FROM posts');
         //$posts = Post::orderBy('title','desc')->take(1)->get();
         //$posts = Post::orderBy('title','desc')->get();
 
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $posts = Post::orderBy('created_at','desc')->paginate(5);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -62,8 +54,6 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
@@ -95,41 +85,6 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Created');
-=======
-=======
->>>>>>> refs/remotes/origin/master
-       $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-       ]);
-
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-        //this will get the currently logged in user and put it in the user_id and save it
-        $post->user_id = auth()->user()->id;
->>>>>>> 18cd3147... Authentican & relationships
-        $post->save();
-<<<<<<< HEAD
-            
-        return redirect('/posts')->with('success','Your New Post is Created');
->>>>>>> b1c5cb4d... CRUD create/store with validation
-=======
-
-        //this will get the currently logged in user and put it in the user_id and save it
-        $post->user_id = auth()->user()->id;
-        $post->save();
-
-        return redirect('/posts')->with('success','Your New Post is created');
->>>>>>> refs/remotes/origin/master
-=======
-
-        return redirect('/posts')->with('success','Your New Post is created');
->>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
     }
 
     /**
@@ -153,18 +108,12 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
-=======
->>>>>>> refs/remotes/origin/master
-=======
->>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
         return view('posts.edit')->with('post', $post);
     }
 
@@ -177,14 +126,25 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required'
         ]);
 
-        
+         // Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        }
+
         // Create Post
         $post = Post::find($id);
         $post->title = $request->input('title');
@@ -195,24 +155,6 @@ class PostsController extends Controller
         $post->save();
 
         return redirect('/posts')->with('success', 'Post Updated');
-=======
-=======
->>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
-       $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-       ]);
-
-        $post = Post::find($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
-
-        return redirect('/posts')->with('success','Your Post is updated');
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/master
-=======
->>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
     }
 
     /**
@@ -224,25 +166,18 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
 
-       
+        if($post->cover_image != 'noimage.jpg'){
+            // Delete Image
+            Storage::delete('public/cover_images/'.$post->cover_image);
+        }
         
         $post->delete();
         return redirect('/posts')->with('success', 'Post Removed');
-=======
-        $post->delete();
-        return redirect('/posts')->with('success','The Post is removed');
->>>>>>> refs/remotes/origin/master
-=======
-        $post->delete();
-        return redirect('/posts')->with('success','The Post is removed');
->>>>>>> f8ce891f... CRUD Edit&Delete and Redirect
     }
 }
